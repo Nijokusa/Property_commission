@@ -1,0 +1,48 @@
+// This program is to calculate the property's commission
+// base on the type of the property
+// (Residential and Commercial)
+
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+    const double Residential_rate = 0.06;
+    const double Commercial_rate = 0.045;
+    int property_code;
+    double sale_price, commission_rate, commission;
+
+    cout << "Enter the property's selling price: ";
+    cin >> sale_price;
+    cout << endl;
+
+    cout << "Enter the property code according the following." << endl <<endl;
+    cout << "Residential, enter R" << endl;
+    cout << "Commercial,  enter C" << endl << endl;
+    cout << "Please make your selection: ";
+
+    cin.get();   //Discard the \n
+    property_code = cin.get();
+
+    switch (property_code)
+    {
+        case 'R':
+        case 'r':
+            commission_rate = Residential_rate;
+            break;
+        case 'C':
+        case 'c':
+            commission_rate = Commercial_rate;
+            break;
+        default:
+            cout << endl << endl <<"Invalid Property Code! Please Try Again" << endl;
+            exit(1);
+            break;
+    }
+    commission = sale_price * commission_rate;
+    cout << endl << endl;
+    cout << "The commission is " << commission << endl;
+    return 0;
+}
